@@ -33,7 +33,7 @@
                 <form method="post" id="admin_register_form">
                     <div class="form-group">
                         <label>Enter Your Email Address</label>
-                        <input type="text" name="admin_email_address" id="admin_email_address" class="form-control" data-parsley-checkemail data-parsley-checkemail-messege='Email already Exists'/> 
+                        <input type="email" name="admin_email_address" id="admin_email_address" class="form-control" data-parsley-checkemail data-parsley-required="true" data-parsley-type="email"/> 
 </div>
                     <div class="form-group">
                         <label>Enter Your Password</label>
@@ -75,12 +75,11 @@
                     url: "ajax_action.php",
                     method: "POST",
                     data:{page:'register', action: 'check-email', email:value},
-                    dataType:"json",
-                    success: function(data)
-                    {
-                        return true;
-                    }
+                    dataType:"json"
                 });
+            },
+            messages: {
+                en: 'This email already exists'
             }
         });
 

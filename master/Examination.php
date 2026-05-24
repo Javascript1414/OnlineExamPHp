@@ -21,7 +21,7 @@ function __construct(){
     $this->port=3307;
     $this->home_page = 'http://localhost/tutorial/online_examination/';
 
-    $this->connect = new PDO("mysql:host=$this->host; dbname=$this->database", "$this->username" , "$this->password");
+    $this->connect = new PDO("mysql:host=$this->host; dbname=$this->database", "$this->username" , "$this->password" , "$this->port");
 
     session_start();
 
@@ -32,7 +32,7 @@ function execute_query(){
 
 }
 function total_row(){
-    $this ->execute_query();
+    this ->execute_query();
     return $this->statement->rowCount();
 }
 }
