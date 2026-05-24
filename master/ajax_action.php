@@ -5,7 +5,7 @@ $exam= new Examination;
 
 if(isset($_POST['page'])){
     if($_POST['page'] == 'register'){
-        if($_POST['action'] == 'check_email'){
+        if($_POST['action'] == 'check-email'){
             $exam->query = "
             SELECT * FROM admin_table
             WHERE admin_email_address = '".trim($_POST["email"])."'
@@ -14,7 +14,7 @@ if(isset($_POST['page'])){
             $total_row = $exam->total_row();
 
             if($total_row == 0){
-                $output = array('success' => true);
+                $output = array('success' => false);
                 echo json_encode($output);
             }
         }
